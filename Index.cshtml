@@ -1,0 +1,51 @@
+﻿@model List<SMS.Models.mymodel>
+
+
+    <html bgcolor="pink">
+        <h1>Student List</h1>
+        <a href="/home/add">Add New Student</a>
+    <body>
+    <table class="table table-hover table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Class</th>
+            <th>Class Teacher</th>
+            <th>EDIT</th>
+            <th>DELETE</th>
+            <th>DETAILS</th>
+
+        </tr>
+        @foreach(var i in Model)
+    {
+        <tr>
+            <td>@i.Id</td>
+            <td>@i.Sname</td>
+            <td>@i.Class</td>
+            <td>@i.ClassTeacher</td>
+
+          <td><a asp-controller="Home" asp-action="edit" asp-route-id="@i.Id" class="btn btn-outline-danger">EDIT</a></td>
+          <td><a asp-controller="Home" asp-action="Del" asp-route-id="@i.Id"  class="btn btn-outline-primary">DELETE</a></td>
+          <td><a asp-controller="Home" asp-action="Details" asp-route-id="@i.Id"  class="btn btn-outline-warning">DETAILS</a></td>
+
+        </tr>
+
+    }
+
+    </table>
+
+       <a href="/home/LogOut">LOGOUT</>
+
+
+    </body>
+   </html>
+
+    <style>
+   
+        .table{
+
+            
+            cursor:pointer;
+        }
+
+    </style>

@@ -1,0 +1,159 @@
+﻿@model SMS.Models.logmodel
+
+
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<h1>Welcome</h1>
+<body>
+    <h1 class="hed"><u>St.Cybill High School</u></h1>
+    <main>
+       <form asp-action="Log" id="allform">
+           <h1>Login</h1>
+            <div class="form_div">
+                <label>ID:</label>
+                <p class="cc">@TempData["Invalid"]</p>
+            <input asp-for="AdminId" class="form-control" placeholder="Admin ID" autofocus required="required" id="c">
+                <label>Password:</label>
+                 <p  class="cc">@ViewBag.Inv</p>
+                <input asp-for="Pass" class="form-control" placeholder="Password !" required="required" type="password">
+                <br>
+    <div class="form-group">
+                <input type="submit" value="Login" class="btn btn-primary" Id="hit" />
+            </div>
+          
+            </div>
+        </form>
+    </main>
+
+
+    <script>
+
+
+
+    $(document).ready(function(){
+      $("#hit").click(function(){
+        
+      var url = $("#allform").attr("action");  //form merhod action
+   
+      //alert(url);
+      
+      var data = $("#allform").serialize();  //home//index
+
+      //alert(data);
+
+        $.ajax({                        //calling AJAX
+          type="POST",     // type of action put or post...
+          url=url,                 //link foe action perform...
+          data= data         //all input fields.....
+
+
+      });
+
+         });
+
+    });
+
+   
+
+</script>
+
+
+
+
+ </body>
+
+ <style>
+     .cc{
+       color:red;
+     }
+     .hed{
+         font-weight: 900;
+         color:yellow;
+
+     }
+     .hed:hover{
+         color:greenyellow;
+     }
+     * {
+    padding: 0px;
+    margin: 0px;
+}
+body {
+  background-image: url(/image/c3.jpg);
+ background-repeat:no-repeat;
+}
+
+h1 {
+    letter-spacing: 1.5vw;
+    font-family: 'system-ui';
+    text-transform: uppercase;
+    text-align: center;
+}
+main {
+       color:whitesmoke;
+  border-style:solid;
+  border-color:black;
+  border-width:3px;
+  border-radius:40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 75vh;
+    width: 100%;
+    background-image: url(/image/c.jpg);
+ background-repeat:no-repeat;
+    background-size: cover;
+}
+.form_class {
+    width: 500px;
+    padding: 40px;
+    border-radius: 8px;
+    background-color: white;
+    font-family: 'system-ui';
+    box-shadow: 5px 5px 10px rgb(0,0,0,0.3);
+}
+.form_div {
+    text-transform: uppercase;
+}
+.form_div > label {
+    letter-spacing: 3px;
+    font-size: 1rem;
+}
+.info_div {
+    text-align: center;
+    margin-top: 20px;
+}
+.info_div {
+    letter-spacing: 1px;
+}
+.field_class {
+    width: 100%;
+    border-radius: 6px;
+    border-style: solid;
+    border-width: 1px;
+    padding: 5px 0px;
+    text-indent: 6px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-family: 'system-ui';
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+}
+.submit_class {
+    border-style: none;
+    border-radius: 5px;
+    background-color: #FFE6D4;
+    padding: 8px 20px;
+    font-family: 'system-ui';
+    text-transform: uppercase;
+    letter-spacing: .8px;
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    box-shadow: 2px 2px 5px rgb(0,0,0,0.2);
+    cursor: pointer;
+}
+
+ </style>
